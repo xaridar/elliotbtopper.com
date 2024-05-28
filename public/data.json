@@ -17,6 +17,7 @@
         "Java",
         "JavaScript",
         "jQuery",
+        "Material UI",
         "MATLAB",
         "MySQL",
         "Next.js",
@@ -32,6 +33,7 @@
         "Tailwind CSS",
         "TypeScript",
         "Unity",
-        "Visual Studio Code"
+        "Visual Studio Code",
+        "Yarn"
     ]
 }
