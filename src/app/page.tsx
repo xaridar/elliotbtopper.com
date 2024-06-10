@@ -7,7 +7,7 @@ export default function Home() {
 	const shuffled = shuffle(logos, { copy: true });
 	return (
 		<LogoCarousel
-			speed={10}
+			speed={15}
 			productNames={shuffled}
 		/>
 	);
