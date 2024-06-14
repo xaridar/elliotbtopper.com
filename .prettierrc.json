@@ -9,7 +9,7 @@
 	"jsxSingleQuote": true,
 	"experimentalTernaries": true,
 	"printWidth": 120,
-	"trailingComma": "all",
+	"trailingComma": "es5",
 	"bracketSameLine": true,
 	"singleAttributePerLine": true
 }

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { css, keyframes } from '@/lib/emotion';
-import { ReactEventHandler, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Keyframes } from '@emotion/react';
 import logos from '../lib/logos';
 
@@ -14,7 +14,6 @@ interface LogoCarouselProps {
 export const LogoCarousel = (props: LogoCarouselProps) => {
 	const carouselRef = useRef<HTMLDivElement>(null);
 	const [scroll, setScroll] = useState<Keyframes>(null);
-	const [activeLogo, setActiveLogo] = useState<string>('');
 
 	useLayoutEffect(() => {
 		if (carouselRef.current != null) {
