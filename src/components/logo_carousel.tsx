@@ -1,19 +1,20 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { css, keyframes } from '@/lib/emotion';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Keyframes } from '@emotion/react';
 import logos from '../lib/logos';
 
 interface LogoCarouselProps {
-	productNames: string[];
+	products: {name: string, logo: StaticImageData, link: string}[];
 	speed: number;
 }
 
 export const LogoCarousel = (props: LogoCarouselProps) => {
 	const carouselRef = useRef<HTMLDivElement>(null);
 	const [scroll, setScroll] = useState<Keyframes>(null);
+	const [paused, setPaused] = useState<boolean>(false);
 
 	useLayoutEffect(() => {
 		if (carouselRef.current != null) {
@@ -28,6 +29,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 			);
 		}
 	}, [carouselRef.current?.clientWidth]);
+	
 	const test = [0,0];
 
 	return (
@@ -42,31 +44,33 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 				ref={carouselRef}
 				className='h-full absolute gap-12 pr-12 start-0 flex justify-start items-center w-max'
 				css={css({
-					animation: `${scroll} ${props.speed}s linear infinite`,
+					animation: `${scroll} ${props.speed * 2}s linear infinite`,
+					animationPlayState: paused ? 'paused' : 'playing',
 				})}>
 				{test.map(() => 
-					props.productNames.map(name => (
-							<Image
-							className='aspect-initial h-10 w-auto'
-							src={
-								logos[name
-									.replace(/[\s\.]/g, '_')
-									.replace('#', 'sharp')
-									.toLowerCase()]
-							}
-							alt={name + ' logo'}
-							key={name}></Image>
+					props.products.map(p => (
+						<a target='_blank' href={p.link}
+						data-tooltip-id='my-tooltip'
+						data-tooltip-content={p.name}>
+								<Image
+									onMouseEnter={() => setPaused(true)}
+									onMouseLeave={() => setPaused(false)}
+									className='aspect-initial h-10 w-auto transition-transform lang-icon'
+									src={p.logo}
+									alt={p.name + ' logo'}
+									key={p.name}>
+								</Image>
+							</a>
 					))
 				)
 				}
 			</div>
 			<div
-				className='absolute inset-0 h-full z-10'
+				className='absolute inset-0 h-full z-10 pointer-events-none'
 				css={css({
 					background:
 						'linear-gradient(90deg, rgb(var(--background-rgb)) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgb(var(--background-rgb)) 100%)',
 				})}></div>
 		</div>
 	);
-	``;
 };
