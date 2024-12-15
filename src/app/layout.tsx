@@ -1,9 +1,7 @@
 /* @jsxImportSource react */
 
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 
-const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr : false });
 import { Inter } from 'next/font/google';
 import './globals.css';
 import '@fontsource/roboto/300.css';
@@ -24,11 +22,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>			
-			<ReactTooltip
-				id='my-tooltip'
-				style={{ zIndex: 99 }}
-			/>
+		<html lang='en'>
 			<body className={`${inter.className} h-screen font-body`}>{children}</body>
 		</html>
 	);

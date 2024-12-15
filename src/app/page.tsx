@@ -1,18 +1,22 @@
 /* @jsxImportSource react */
-'use client'
+'use client';
 import { LogoCarousel } from '@/components/logo_carousel';
 import logos from '@/lib/logos';
 import shuffle from 'shuffle-array';
 import Typewriter from 'typewriter-effect';
+import { Tooltip } from 'react-tooltip';
 
 export default function Home() {
 	const shuffled = shuffle(logos, { copy: true });
-	
+
 	return (
 		<div className='h-full w-full flex items-center pt-[30vh] flex-col'>
+			<Tooltip
+				id='my-tooltip'
+				style={{ zIndex: 99 }}
+			/>
 			<div className='text-5xl text-center'>
-				
-				<div className="flex">
+				<div className='flex'>
 					<span className='whitespace-pre'>Hi, I'm </span>
 					<div className='text-blue-700'>
 						<Typewriter
@@ -25,7 +29,7 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-				<br/>
+				<br />
 				<span>Nice to meet you!</span>
 			</div>
 			<LogoCarousel
