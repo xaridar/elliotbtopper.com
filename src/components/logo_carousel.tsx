@@ -2,7 +2,7 @@
 
 import Image, { StaticImageData } from 'next/image';
 import { css, keyframes } from '@/lib/emotion';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Keyframes } from '@emotion/react';
 
 interface LogoCarouselProps {
@@ -15,7 +15,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 	const [scroll, setScroll] = useState<Keyframes>(null);
 	const [paused, setPaused] = useState<boolean>(false);
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		if (carouselRef.current != null) {
 			setScroll(
 				keyframes({
@@ -28,13 +28,11 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 			);
 		}
 	}, [carouselRef.current?.clientWidth]);
+	const dupe = [...props.products, ...props.products];
 
 	return (
 		<div
-			className='m-auto relative overflow-hidden h-10 px-48 py-12 box-content'
-			css={css({
-				width: 550,
-			})}>
+			className='m-auto relative overflow-hidden h-10 py-12 w-full max-w-6xl box-content'>
 			<div
 				id='animatedCarousel'
 				ref={carouselRef}
@@ -43,15 +41,14 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 					animation: `${scroll} ${props.speed * 2}s linear infinite`,
 					animationPlayState: paused ? 'paused' : 'running',
 				})}>
-				{[0, 0].map(() => [
-					...props.products.map((p, i) => (
+				{dupe.map((p, i) => (
 						<a
 							target='_blank'
 							href={p.link}
 							className='transition-transform h-full'
 							data-tooltip-id='my-tooltip'
 							data-tooltip-content={p.name}
-							key={p.name}>
+							key={`${p.name}-${i}`}>
 							<Image
 								onMouseEnter={() => setPaused(true)}
 								onMouseLeave={() => setPaused(false)}
@@ -59,16 +56,20 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 								src={p.logo}
 								alt={p.name + ' logo'}></Image>
 						</a>
-					)),
-				])}
+					))}
 			</div>
 			<div
-				className='absolute inset-0 h-full z-10 pointer-events-none'
+				className='absolute inset-0 h-full z-10 pointer-events-none hidden sm:block'
 				css={css({
-					background: `linear-gradient(90deg, rgb(var(--background-rgb)) 0%, rgb(var(--background-rgb)) 25%, rgba(var(--background-rgb), 0) 40%, rgba(var(--background-rgb), 0) 75%, rgb(var(--background-rgb)) 95%, rgb(var(--background-rgb)) 100%)`,
+					background: `linear-gradient(90deg, rgb(var(--background-rgb)) 0%, rgb(var(--background-rgb)) 25%, rgba(var(--background-rgb), ${+paused * 0.75}) 40%, rgba(var(--background-rgb), ${+paused * 0.75}) 60%, rgb(var(--background-rgb)) 75%, rgb(var(--background-rgb)) 100%)`,
 				})}></div>
-			<div className='absolute inset-0 w-1/4'></div>
-			<div className='absolute inset-0 w-1/4 left-auto'></div>
+			<div
+				className='absolute inset-0 h-full z-10 pointer-events-none block sm:hidden'
+				css={css({
+					background: `linear-gradient(90deg, rgb(var(--background-rgb)) 0%, rgb(var(--background-rgb)) ${100/12}%, rgba(var(--background-rgb), ${+paused * 0.75}) 40%, rgba(var(--background-rgb), ${+paused * 0.75}) 60%, rgb(var(--background-rgb)) ${1100/12}%, rgb(var(--background-rgb)) 100%)`,
+				})}></div>
+			<div className='absolute inset-0 w-1/12 sm:w-1/4'></div>
+			<div className='absolute inset-0 w-1/12 sm:w-1/4 left-auto'></div>
 		</div>
 	);
 };

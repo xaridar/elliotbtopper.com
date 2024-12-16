@@ -34,7 +34,6 @@ body {
 a:has(.lang-icon:hover) {
 	z-index: 99;
 	transform: scale(2);
-	/* position: absolute; */
 }
 
 @layer utilities {
