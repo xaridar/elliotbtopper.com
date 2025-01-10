@@ -5,15 +5,13 @@
 
 :root {
 	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+	--background-rgb: 255, 255, 255;
+	--accent-rgb: 153, 115, 199;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-rgb: 27, 39, 51;
-	}
+.colored {
+	--foreground-rgb: 255, 255, 255;
+	--background-rgb: 27, 39, 51;
 }
 
 * {
@@ -21,19 +19,35 @@
 	padding: 0;
 }
 
-body {
+section {
 	color: rgb(var(--foreground-rgb));
 	background: rgb(var(--background-rgb));
 	box-sizing: border-box;
+	padding: 2rem;
+}
+
+section.mousePos,
+div.mousePos {
+	background: radial-gradient(
+		circle at var(--x-pos) var(--y-pos),
+		var(--secondary-color) 0%,
+		rgb(var(--background-rgb)) 100%
+	);
+}
+
+#carouselParent {
+	mask-image: linear-gradient(90deg, transparent 0%, white 40%, white 60%, transparent 100%);
+	-webkit-mask-image: linear-gradient(90deg, transparent 0%, white 40%, white 60%, transparent 100%);
+	mask-size: 100%;
+	-webkit-mask-size: 100%;
+}
+
+#home::after {
+	content: '';
 }
 
 .Typewriter {
 	font-family: 'Roboto Mono', monospace;
-}
-
-a:has(.lang-icon:hover) {
-	z-index: 99;
-	transform: scale(2);
 }
 
 @layer utilities {
