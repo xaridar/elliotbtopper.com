@@ -10,7 +10,7 @@ import csharp from '../../public/images/logos/csharp.png';
 
 import cpp from '../../public/images/logos/c++.png';
 
-import css3 from '../../public/images/logos/css3.png';
+import css from '../../public/images/logos/css.png';
 
 import dart from '../../public/images/logos/dart.png';
 
@@ -30,7 +30,7 @@ import git from '../../public/images/logos/git.png';
 
 import github from '../../public/images/logos/github.png';
 
-import html5 from '../../public/images/logos/html5.png';
+import html from '../../public/images/logos/html.png';
 
 import intellij from '../../public/images/logos/intellij.png';
 
@@ -45,6 +45,8 @@ import material_ui from '../../public/images/logos/material_ui.png';
 import matlab from '../../public/images/logos/matlab.png';
 
 import mongodb from '../../public/images/logos/mongodb.png';
+
+import mongoose from '../../public/images/logos/mongoose.png';
 
 import mysql from '../../public/images/logos/mysql.png';
 
@@ -82,14 +84,14 @@ import visual_studio_code from '../../public/images/logos/visual_studio_code.png
 
 import yarn from '../../public/images/logos/yarn.png';
 
-export default [
+const logos = [
 	{ name: 'Android', logo: android },
 	{ name: 'Android Studio', logo: android_studio },
 	{ name: 'Bootstrap', logo: bootstrap },
 	{ name: 'C', logo: c },
 	{ name: 'C++', logo: cpp },
 	{ name: 'C#', logo: csharp },
-	{ name: 'CSS3', logo: css3 },
+	{ name: 'CSS', logo: css },
 	{ name: 'Dart', logo: dart },
 	{ name: 'Express', logo: express },
 	{ name: 'Feather Icons', logo: feather_icons },
@@ -99,7 +101,7 @@ export default [
 	{ name: 'FontAwesome', logo: fontawesome },
 	{ name: 'Git', logo: git },
 	{ name: 'GitHub', logo: github },
-	{ name: 'HTML5', logo: html5 },
+	{ name: 'HTML', logo: html },
 	{ name: 'IntelliJ IDEA', logo: intellij },
 	{ name: 'Java', logo: java },
 	{ name: 'JavaScript', logo: javascript },
@@ -107,6 +109,7 @@ export default [
 	{ name: 'Material UI', logo: material_ui },
 	{ name: 'MATLAB', logo: matlab },
 	{ name: 'MongoDB', logo: mongodb },
+	{ name: 'Mongoose', logo: mongoose },
 	{ name: 'MySQL', logo: mysql },
 	{ name: 'Next.js', logo: next_js },
 	{ name: 'Node.js', logo: node_js },
@@ -126,3 +129,5 @@ export default [
 	{ name: 'Visual Studio Code', logo: visual_studio_code },
 	{ name: 'Yarn', logo: yarn },
 ] as const;
+export default logos;
+export type logo_name = (typeof logos)[number]['name'];

@@ -1,10 +1,9 @@
 /* @jsxImportSource react */
 'use client';
 import { LogoCarousel } from '@/components/logo_carousel';
-import logos from '@/lib/logos';
 import Typewriter from 'typewriter-effect';
 import { Tooltip } from 'react-tooltip';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { StringCycler } from '@/components/string_cycler';
 import { motion } from 'motion/react';
 import { BG } from '@/components/moving_background';
@@ -90,13 +89,40 @@ export default function Home() {
 			<section
 				id='projects'
 				className='h-screen text-center pt-28'>
-				<h1 className='text-6xl'>Projects</h1>
+				<h2 className='text-6xl'>Projects</h2>
+				<h3>Portfolio</h3>
 				<LogoCarousel
 					className='w-80'
 					repeats={2}
 					speed={5}
 					shuffle
-					products={['React', 'Next.js', 'GitHub', 'Feather Icons', 'TypeScript', 'Tailwind CSS', 'Yarn']}
+					products={[
+						'Mongoose',
+						'MongoDB',
+						'React',
+						'Next.js',
+						'GitHub',
+						'Feather Icons',
+						'TypeScript',
+						'Tailwind CSS',
+						'Yarn',
+					]}
+				/>
+				<h3>WordAround</h3>
+				<LogoCarousel
+					className='w-80'
+					repeats={2}
+					speed={5}
+					shuffle
+					products={['HTML', 'CSS', 'JavaScript', 'Express', 'NPM', 'Node.js']}
+				/>
+				<h3>ImageProc</h3>
+				<LogoCarousel
+					className='w-80'
+					speed={0.5}
+					repeats={6}
+					shuffle
+					products={['Java']}
 				/>
 			</section>
 		</div>

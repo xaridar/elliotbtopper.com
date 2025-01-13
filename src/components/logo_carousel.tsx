@@ -4,15 +4,14 @@ import Image, { StaticImageData } from 'next/image';
 import { css, keyframes } from '@/lib/emotion';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Keyframes } from '@emotion/react';
-import logos from '@/lib/logos';
+import logos, { logo_name } from '@/lib/logos';
 import shuffle from 'shuffle-array';
 
-type logo_name = (typeof logos)[number]['name'];
 interface LogoCarouselProps {
 	products: logo_name[];
 	speed: number;
 	className?: string;
-	repeats?: 1 | 2 | 3 | 4;
+	repeats?: 1 | 2 | 3 | 4 | 5 | 6;
 	shuffle?: boolean;
 }
 
@@ -29,7 +28,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 					from: { left: 0 },
 
 					to: {
-						left: `-${carouselRef.current.clientWidth / 2}px;`,
+						left: `-${carouselRef.current.clientWidth / props.repeats}px;`,
 					},
 				})
 			);
