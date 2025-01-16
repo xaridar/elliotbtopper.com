@@ -37,3 +37,4 @@ next-env.d.ts
 
 # population scripts
 /*.mongodb.js
+/src/app/page.tsx

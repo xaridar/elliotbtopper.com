@@ -4,9 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-rgb: 255, 255, 255;
+	--foreground-rgb: 40, 0, 60;
+	--background-rgb: 255, 90, 255;
 	--accent-rgb: 153, 115, 199;
+	--card-rgb: 255, 220, 255;
 }
 
 .colored {
@@ -19,11 +20,17 @@
 	padding: 0;
 }
 
+a[target='_blank'] {
+	text-decoration: underline;
+}
+
 section {
 	color: rgb(var(--foreground-rgb));
 	background: rgb(var(--background-rgb));
 	box-sizing: border-box;
 	padding: 2rem;
+	position: relative;
+	text-align: center;
 }
 
 section.mousePos,
@@ -42,10 +49,6 @@ div.mousePos {
 	-webkit-mask-size: 100%;
 }
 
-#home::after {
-	content: '';
-}
-
 .Typewriter {
 	font-family: 'Roboto Mono', monospace;
 }
@@ -53,5 +56,11 @@ div.mousePos {
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
+	}
+}
+
+@layer components {
+	.card {
+		@apply bg-[rgba(0,0,0,.03)] rounded-2xl shadow-[rgb(var(--accent-rgb))] shadow-lg;
 	}
 }

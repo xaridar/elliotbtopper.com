@@ -1,22 +1,26 @@
 import logos, { logo_name } from '@/lib/logos';
 import mongoose from 'mongoose';
 
-interface TypedInterface extends mongoose.Document {
-	title: String;
-	description: String;
-	image_link: String;
-	link: String;
+export interface ProjectInterface extends mongoose.Document {
+	title: string;
+	description: string;
+	image_link: string;
+	link: string;
 	technologies: logo_name[];
-	for: String;
+	year: number;
+	for?: string;
 }
 
-const ProjectSchema = new mongoose.Schema<TypedInterface>({
+const ProjectSchema = new mongoose.Schema<ProjectInterface>({
 	title: { type: String, required: true, unique: true, index: true },
 	description: { type: String, required: true },
 	image_link: { type: String, required: true, match: /[A-Za-z_-]+.(png|jpg|jpeg|webp|tiff)/ },
 	link: { type: String },
 	technologies: [{ type: String, enum: Object.values(logos.map(l => l.name)) }],
+	year: { type: Number, required: true },
 	for: { type: String, required: false },
 });
 
-export default mongoose.models.Project || mongoose.model('Project', ProjectSchema);
+const model = mongoose.models.Project || mongoose.model<ProjectInterface>('Project', ProjectSchema);
+
+export default model;

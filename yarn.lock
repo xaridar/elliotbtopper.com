@@ -1077,6 +1077,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shrutibalasa/tailwind-grid-auto-fit@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@shrutibalasa/tailwind-grid-auto-fit@npm:1.1.0"
+  checksum: 10c0/b407054acdfc05137929a921d197c5396ee783c6cafabc06c804eb82b8d03a526b84155d035593c9108458d15aa20fed1d9791cce5a3bce1a480c2b80199a60d
+  languageName: node
+  linkType: hard
+
 "@swc/counter@npm:0.1.3":
   version: 0.1.3
   resolution: "@swc/counter@npm:0.1.3"
@@ -1157,6 +1164,13 @@ __metadata:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10c0/fe455f805c5da13b89964c3d68060cebd43e73ec15001a68b34634604a78140e6fc202f3f61679b9d809dde6d7a7c2cb3ed51e0fd1462557911db09879b55114
+  languageName: node
+  linkType: hard
+
+"@types/shortid@npm:^2":
+  version: 2.2.0
+  resolution: "@types/shortid@npm:2.2.0"
+  checksum: 10c0/2784ac102cf2b24fee2ae2583419ca7af99fdb30611c4f5becdff191b96a1fd5bf2a0c46826ae5b1a398283224ea29676fd22811686eb417c995e8a823849960
   languageName: node
   linkType: hard
 
@@ -3995,6 +4009,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^2.1.0":
+  version: 2.1.11
+  resolution: "nanoid@npm:2.1.11"
+  checksum: 10c0/8640d17698633ff78b2549ec8d5dffd8f56909bad1cf0da08bf3a4012f98553b1b9f2327a2d7fb3613084f33189a8ab4b889eb4c7939f3f9e242d9fd8ff059d5
+  languageName: node
+  linkType: hard
+
 "nanoid@npm:^3.3.6, nanoid@npm:^3.3.7":
   version: 3.3.7
   resolution: "nanoid@npm:3.3.7"
@@ -4027,10 +4048,12 @@ __metadata:
     "@fontsource/roboto": "npm:^5.0.13"
     "@mui/icons-material": "npm:^5.15.18"
     "@mui/material": "npm:^5.15.18"
+    "@shrutibalasa/tailwind-grid-auto-fit": "npm:^1.1.0"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@types/react-scroll": "npm:^1"
+    "@types/shortid": "npm:^2"
     "@types/shuffle-array": "npm:^1"
     "@yarnpkg/plugin-typescript": "npm:^4.1.1"
     eslint: "npm:^8"
@@ -4045,6 +4068,7 @@ __metadata:
     react-feather: "npm:^2.0.10"
     react-scroll: "npm:^1.9.0"
     react-tooltip: "npm:^5.28.0"
+    shortid: "npm:^2.2.16"
     shuffle-array: "npm:^1.0.1"
     tailwindcss: "npm:^3.4.16"
     typescript: "npm:5.7.2"
@@ -5037,6 +5061,15 @@ __metadata:
   version: 3.0.0
   resolution: "shebang-regex@npm:3.0.0"
   checksum: 10c0/1dbed0726dd0e1152a92696c76c7f06084eb32a90f0528d11acd764043aacf76994b2fb30aa1291a21bd019d6699164d048286309a278855ee7bec06cf6fb690
+  languageName: node
+  linkType: hard
+
+"shortid@npm:^2.2.16":
+  version: 2.2.16
+  resolution: "shortid@npm:2.2.16"
+  dependencies:
+    nanoid: "npm:^2.1.0"
+  checksum: 10c0/7f389eb96cc11b569ac02655b861290a194f3a5402b3e3c86d21b9d016ac964683bdd6aac03b61fb6ddc5a727641442f56b70266742cf0911eee3bdc61be99eb
   languageName: node
   linkType: hard
 

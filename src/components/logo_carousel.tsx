@@ -6,6 +6,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Keyframes } from '@emotion/react';
 import logos, { logo_name } from '@/lib/logos';
 import shuffle from 'shuffle-array';
+import shortid from 'shortid';
 
 interface LogoCarouselProps {
 	products: logo_name[];
@@ -20,6 +21,8 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 	const [scroll, setScroll] = useState<Keyframes>(null);
 	const [paused, setPaused] = useState<boolean>(false);
 	const [dupe, setDupe] = useState<logo_name[]>([]);
+	const [scrollSpeed, setScrollSpeed] = useState<number>(0);
+	const [anim, setAnim] = useState<string>('');
 
 	useEffect(() => {
 		if (carouselRef.current != null) {
@@ -33,7 +36,8 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 				})
 			);
 		}
-	}, [carouselRef.current?.clientWidth]);
+	}, [carouselRef.current?.clientWidth, props.repeats, props.products]);
+
 	useEffect(() => {
 		const shuffled = props.shuffle ? shuffle(props.products, { copy: true }) : props.products;
 		setDupe(
@@ -41,7 +45,12 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 				.fill(shuffled)
 				.flat()
 		);
-	}, []);
+		setScrollSpeed(props.speed * props.products.length * (props.repeats || 1));
+	}, [props.products, props.shuffle, props.repeats]);
+
+	useEffect(() => {
+		setAnim(`${scroll} ${scrollSpeed}s linear infinite`);
+	}, [scroll, scrollSpeed]);
 
 	return (
 		<div
@@ -54,14 +63,14 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 				onMouseOver={() => setPaused(true)}
 				onMouseOut={() => setPaused(false)}
 				css={css({
-					animation: `${scroll} ${props.speed * 2}s linear infinite`,
+					animation: anim,
 					animationPlayState: paused ? 'paused' : 'running',
 				})}>
 				{dupe.map((p, i) => {
 					const entry = logos.find(l => l.name === p);
+					// if (!entry) return;
 					return (
-						<a
-							target='_blank'
+						<span
 							className='h-full'
 							key={`${p}-${i}`}
 							data-tooltip-id='my-tooltip'
@@ -70,7 +79,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 								className='aspect-initial h-full w-auto lang-icon'
 								src={entry.logo}
 								alt={p + ' logo'}></Image>
-						</a>
+						</span>
 					);
 				})}
 			</div>
