@@ -7,11 +7,10 @@
 	--foreground-rgb: 40, 0, 60;
 	--background-rgb: 255, 90, 255;
 	--accent-rgb: 153, 115, 199;
-	--card-rgb: 255, 220, 255;
 }
 
 .colored {
-	--foreground-rgb: 255, 255, 255;
+	--foreground-rgb: 209, 209, 255;
 	--background-rgb: 27, 39, 51;
 }
 
@@ -61,6 +60,9 @@ div.mousePos {
 
 @layer components {
 	.card {
-		@apply bg-[rgba(0,0,0,.03)] rounded-2xl shadow-[rgb(var(--accent-rgb))] shadow-lg;
+		@apply bg-[rgba(0,0,0,.03)] rounded-2xl shadow-xl shadow-[rgb(var(--accent-rgb))];
+	}
+	.colored .card {
+		@apply bg-[rgba(var(--foreground-rgb),0.03)] shadow-black;
 	}
 }

@@ -3,7 +3,7 @@ import { LogoCarousel } from './logo_carousel';
 
 export const School = (props: { school: SchoolInterface }) => {
 	return (
-		<div>
+		<div className='card w-3/5'>
 			<h3>{props.school.school}</h3>
 			<LogoCarousel
 				products={props.school.technologies}

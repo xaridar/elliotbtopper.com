@@ -55,7 +55,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 	return (
 		<div
 			id='carouselParent'
-			className={`${props.className} m-auto relative overflow-hidden h-10 py-12 box-content`}>
+			className={`${props.className} m-auto relative overflow-hidden h-10 py-4 box-content`}>
 			<div
 				id='animatedCarousel'
 				ref={carouselRef}

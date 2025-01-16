@@ -26,7 +26,7 @@ export const Education = () => {
 			baseElement='section'
 			secondaryColor='black'
 			id='education'
-			className='h-screen text-center pt-28 colored'>
+			className='h-screen text-center pt-28 colored flex items-center flex-col'>
 			<h2 className='text-6xl'>Education</h2>
 			{edu.map(c => {
 				return (
