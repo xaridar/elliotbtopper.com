@@ -1,16 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
 	--foreground-rgb: 40, 0, 60;
 	--background-rgb: 255, 90, 255;
 	--accent-rgb: 153, 115, 199;
+	--link-rgb: 0, 100, 255;
 }
 
 .colored {
-	--foreground-rgb: 209, 209, 255;
+	--foreground-rgb: 255, 255, 255;
 	--background-rgb: 27, 39, 51;
 }
 
@@ -19,8 +19,11 @@
 	padding: 0;
 }
 
-a[target='_blank'] {
-	text-decoration: underline;
+h1,
+h2,
+h3,
+h4 {
+	font-weight: bold;
 }
 
 section {
@@ -50,6 +53,13 @@ div.mousePos {
 
 .Typewriter {
 	font-family: 'Roboto Mono', monospace;
+	font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+	section {
+		padding: 0.25rem;
+	}
 }
 
 @layer utilities {
@@ -64,5 +74,24 @@ div.mousePos {
 	}
 	.colored .card {
 		@apply bg-[rgba(var(--foreground-rgb),0.03)] shadow-black;
+	}
+}
+
+.transition-scale {
+	translate: -100%;
+}
+
+.transition-scale:hover {
+	scale: 1.25;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		translate: -100%;
+	}
+	100% {
+		opacity: 1;
+		translate: 0%;
 	}
 }

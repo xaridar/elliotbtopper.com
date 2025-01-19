@@ -6,7 +6,7 @@ import { BG } from '../moving_background';
 import { AnimatedArrow } from '../animated_arrow';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'react-feather';
+import { ChevronLeft, ChevronRight, ExternalLink, Link2 } from 'react-feather';
 
 export const Projects = () => {
 	const [projects, setProjects] = useState<ProjectInterface[]>([]);
@@ -70,13 +70,13 @@ export const Projects = () => {
 			baseElement='section'
 			secondaryColor='rgb(var(--accent-rgb))'
 			id='projects'
-			className='min-h-screen flex items-center flex-col text-center pt-28 pb-36'>
-			<h2 className='text-6xl'>Projects</h2>
-			<div className='m-8 h-24 max-w-4xl w-4/5 flex justify-center items-center'>
+			className='min-h-screen flex items-center flex-col text-center pt-12 md:pt-28 pb-36'>
+			<h2 className='text-[4em] leading-normal'>Projects</h2>
+			<div className='my-8 md:mx-8 h-24 max-w-4xl w-5/6 md:w-4/5 flex justify-center items-center'>
 				<button onClick={decrement}>
 					<ChevronLeft className='m-2' />
 				</button>
-				<div className='h-full w-full rounded-lg overflow-hidden flex justify-center items-center'>
+				<div className='h-full w-full rounded-lg overflow-hidden flex justify-center items-stretch'>
 					{projects.map(c => {
 						return (
 							<ProjectThumbnail
@@ -95,14 +95,20 @@ export const Projects = () => {
 				</button>
 			</div>
 			{selectedProject && (
-				<div className='!text-inherit flex items-center justify-center flex-col gap-8 m-8 w-3/5 card p-8'>
-					<Link
-						target='_blank'
-						href={selectedProject.link}>
-						<h3 className='text-3xl'>{selectedProject.title}</h3>
-					</Link>
+				<div className='!text-inherit flex items-center justify-center flex-col gap-8 m-8 w-11/2 md:w-3/5 card py-8 p-4 md:p-8'>
+					<div className='flex justify-center items-center gap-2'>
+						<h3 className='text-[2em] leading-normal'>{selectedProject.title}</h3>
+						<Link
+							target='_blank'
+							href={selectedProject.link}>
+							<ExternalLink
+								className='text-[rgb(var(--link-rgb))]'
+								size={15}
+							/>
+						</Link>
+					</div>
 					<Image
-						className='h-48 w-auto'
+						className='h-24 md:h-48 w-auto'
 						src={`/images/${selectedProject.image_link}`}
 						alt={''}
 						width={1000}
@@ -116,6 +122,7 @@ export const Projects = () => {
 								<Link
 									key={i}
 									target='_blank'
+									className='text-[rgb(var(--link-rgb))]'
 									href={elem.split(/\((.*?)\)/)[1]}>
 									{elem.split(/\[(.*?)\]/)[1]}
 								</Link>
@@ -131,7 +138,7 @@ export const Projects = () => {
 							speed={0.3}
 							shuffle
 							repeats={5}
-							className='w-72'
+							className='w-48 md:w-72'
 						/>
 					</div>
 				</div>

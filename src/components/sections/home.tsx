@@ -12,7 +12,7 @@ export const HomeElem = () => {
 			id='home'
 			baseElement={'section'}
 			secondaryColor='black'
-			className='h-screen text-center flex items-center justify-center flex-col colored'>
+			className='h-screen text-center flex items-center justify-center flex-col colored font-semibold'>
 			<div className='text-5xl min-[820px]:text-6xl'>
 				<div className='md:flex items-end'>
 					<span className='whitespace-pre'>Hi, I'm </span>

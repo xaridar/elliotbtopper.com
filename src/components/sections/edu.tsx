@@ -3,6 +3,7 @@ import { LogoCarousel } from '../logo_carousel';
 import { SchoolInterface } from '@/models/School';
 import { School } from '../school';
 import { BG } from '../moving_background';
+import { AnimatedArrow } from '../animated_arrow';
 
 export const Education = () => {
 	const [edu, setEdu] = useState<SchoolInterface[]>([]);
@@ -26,16 +27,19 @@ export const Education = () => {
 			baseElement='section'
 			secondaryColor='black'
 			id='education'
-			className='h-screen text-center pt-28 colored flex items-center flex-col'>
-			<h2 className='text-6xl'>Education</h2>
-			{edu.map(c => {
-				return (
-					<School
-						school={c}
-						key={`${c.id}`}
-					/>
-				);
-			})}
+			className='min-h-screen text-center pt-12 md:pt-28 colored flex items-center flex-col pb-36'>
+			<h2 className='text-[4em] leading-normal'>Education</h2>
+			<div className='m-8 w-full flex flex-col items-center'>
+				{edu.map(c => {
+					return (
+						<School
+							school={c}
+							key={`${c.id}`}
+						/>
+					);
+				})}{' '}
+			</div>
+			<AnimatedArrow id='contact' />
 		</BG>
 	);
 };
