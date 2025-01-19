@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+section {
 	--foreground-rgb: 40, 0, 60;
 	--background-rgb: 255, 90, 255;
 	--accent-rgb: 153, 115, 199;
-	--link-rgb: 0, 100, 255;
+	--link-rgb: 0, 86, 221;
 }
 
 .colored {

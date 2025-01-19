@@ -848,22 +848,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.15.18":
-  version: 5.15.18
-  resolution: "@mui/icons-material@npm:5.15.18"
-  dependencies:
-    "@babel/runtime": "npm:^7.23.9"
-  peerDependencies:
-    "@mui/material": ^5.0.0
-    "@types/react": ^17.0.0 || ^18.0.0
-    react: ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10c0/8990f48060cb9f52a898c3b53d602913129bd37c811528dbc3988a62b1ef84b12dd9e263be76200a429455e5552706d1395c8f2b1fe56c04b37543784864d43c
-  languageName: node
-  linkType: hard
-
 "@mui/material@npm:^5.15.18":
   version: 5.15.18
   resolution: "@mui/material@npm:5.15.18"
@@ -1306,6 +1290,15 @@ __metadata:
   dependencies:
     "@types/react": "npm:*"
   checksum: 10c0/f3f67413f8dc0a4a00a1b135a2b5f44591c06044f61bcaa5dbd9da45f8a682d3e6040df04ae9277ad10c3c95c22bf967f45deb9ea48d70bcc162ced4ce0ecdea
+  languageName: node
+  linkType: hard
+
+"@types/react-responsive-masonry@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@types/react-responsive-masonry@npm:2.6.0"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10c0/36f25d2b2993117b1fbabc17e35109f295e981fe428aa12c5f76dd60ddad1b74ff222320e7d4c4249c483645b5b92edaf82fc0d43e63beb479b21c2c6f18fe7a
   languageName: node
   linkType: hard
 
@@ -4942,13 +4935,13 @@ __metadata:
     "@fontsource/roboto": "npm:^5.0.13"
     "@formspree/cli": "npm:^0.9.6"
     "@formspree/react": "npm:^2.5.1"
-    "@mui/icons-material": "npm:^5.15.18"
     "@mui/material": "npm:^5.15.18"
     "@shrutibalasa/tailwind-grid-auto-fit": "npm:^1.1.0"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@types/react-hamburger-menu": "npm:^0.0.6"
+    "@types/react-responsive-masonry": "npm:^2.6.0"
     "@types/react-scroll": "npm:^1"
     "@types/shortid": "npm:^2"
     "@types/shuffle-array": "npm:^1"
@@ -4967,6 +4960,7 @@ __metadata:
     react-hamburger-drawer: "npm:^21.11.27"
     react-hamburger-menu: "npm:^1.2.1"
     react-hook-form: "npm:^7.54.2"
+    react-responsive-masonry: "npm:^2.6.0"
     react-scroll: "npm:^1.9.0"
     react-tooltip: "npm:^5.28.0"
     shortid: "npm:^2.2.16"
@@ -5861,6 +5855,13 @@ __metadata:
   version: 18.3.1
   resolution: "react-is@npm:18.3.1"
   checksum: 10c0/f2f1e60010c683479e74c63f96b09fb41603527cd131a9959e2aee1e5a8b0caf270b365e5ca77d4a6b18aae659b60a86150bb3979073528877029b35aecd2072
+  languageName: node
+  linkType: hard
+
+"react-responsive-masonry@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "react-responsive-masonry@npm:2.6.0"
+  checksum: 10c0/126d382b7c943967979b448d9a8d67477187f23cf85bf7e5a716f54d00500bee8ef143ad1460802b3e0f59719965d0af8c396dd799a4970814cff414c96cb68c
   languageName: node
   linkType: hard
 

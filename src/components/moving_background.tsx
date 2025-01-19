@@ -1,7 +1,7 @@
 'use client';
 
 import { Interpolation, Theme } from '@emotion/react';
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 interface BGProps {
 	baseElement: 'section' | 'div';
@@ -10,11 +10,12 @@ interface BGProps {
 	className?: string;
 	css?: Interpolation<Theme>;
 	id?: string;
+	ref?: MutableRefObject<HTMLDivElement>;
 }
 
 export const BG = (props: BGProps) => {
 	const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 50, y: 50 });
-	const ref = useRef<HTMLDivElement>();
+	const ref = props.ref || useRef<HTMLDivElement>();
 
 	useEffect(() => {
 		ref.current.addEventListener('mousemove', function (e) {

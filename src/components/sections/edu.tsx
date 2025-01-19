@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-import { LogoCarousel } from '../logo_carousel';
+import { MutableRefObject, useEffect, useState } from 'react';
 import { SchoolInterface } from '@/models/School';
 import { School } from '../school';
 import { BG } from '../moving_background';
 import { AnimatedArrow } from '../animated_arrow';
 
-export const Education = () => {
+export const Education = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
 	const [edu, setEdu] = useState<SchoolInterface[]>([]);
 
 	useEffect(() => {
@@ -25,6 +24,7 @@ export const Education = () => {
 		<BG
 			baseElement='section'
 			secondaryColor='black'
+			ref={props.ref}
 			id='education'
 			className='min-h-screen text-center pt-12 md:pt-24 colored flex items-center flex-col pb-36'>
 			<h2 className='text-[4em] leading-normal'>Education</h2>
@@ -36,7 +36,7 @@ export const Education = () => {
 							key={`${c.id}`}
 						/>
 					);
-				})}{' '}
+				})}
 			</div>
 			<AnimatedArrow id='contact' />
 		</BG>

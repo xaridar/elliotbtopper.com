@@ -1,12 +1,12 @@
-import { Menu, X } from 'react-feather';
+'use client';
+
 import { Button } from 'react-scroll';
-import { Twirl as Hamburger } from 'hamburger-react';
 import { useEffect, useState } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
 import Link from 'next/link';
 import { css } from '@emotion/react';
 
-export const Header = () => {
+export const Header = (props: { active: 'home' | 'projects' | 'education' | 'contact' }) => {
 	const [mobileOpened, setMobileOpened] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -26,7 +26,10 @@ export const Header = () => {
 	return (
 		<header className='fixed w-full pt-4 z-10 pointer-events-none'>
 			<ul className='justify-around pointer-events-auto max-w-2xl w-2/3 m-auto py-6 rounded-full bg-[rgba(0,0,0,0.75)] text-white hidden md:flex'>
-				<li className='cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all'>
+				<li
+					className={`cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all ${
+						props.active === 'home' && 'text-[rgb(var(--accent-rgb))]'
+					}`}>
 					<Button
 						to='home'
 						smooth={true}
@@ -34,7 +37,10 @@ export const Header = () => {
 						Home
 					</Button>
 				</li>
-				<li className='cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all'>
+				<li
+					className={`cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all ${
+						props.active === 'projects' && 'text-[rgb(var(--accent-rgb))]'
+					}`}>
 					<Button
 						to='projects'
 						smooth={true}
@@ -42,7 +48,10 @@ export const Header = () => {
 						Projects
 					</Button>
 				</li>
-				<li className='cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all'>
+				<li
+					className={`cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all ${
+						props.active === 'education' && 'text-[rgb(var(--accent-rgb))]'
+					}`}>
 					<Button
 						to='education'
 						smooth={true}
@@ -50,7 +59,10 @@ export const Header = () => {
 						Education
 					</Button>
 				</li>
-				<li className='cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all'>
+				<li
+					className={`cursor-pointer hover:scale-125 hover:text-[rgb(var(--accent-rgb))] transition-all ${
+						props.active === 'contact' && 'text-[rgb(var(--accent-rgb))]'
+					}`}>
 					<Button
 						to='contact'
 						smooth={true}

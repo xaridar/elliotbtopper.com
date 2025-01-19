@@ -5,7 +5,7 @@ export interface SchoolInterface extends mongoose.Document {
 	school: string;
 	degree: string;
 	gpa: number;
-	involvements: string[];
+	courses: { [course_code: string]: string };
 	year_started: number;
 	technologies: logo_name[];
 }
@@ -14,7 +14,7 @@ const SchoolSchema = new mongoose.Schema<SchoolInterface>({
 	school: { type: String, required: true },
 	degree: { type: String, required: true },
 	gpa: { type: Number, required: false },
-	involvements: [{ type: String }],
+	courses: { type: Map, of: String },
 	year_started: { type: Number, required: true },
 	technologies: [{ type: String, enum: Object.values(logos.map(l => l.name)) }],
 });

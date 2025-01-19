@@ -2,10 +2,10 @@ import { GitHub, Linkedin, Mail } from 'react-feather';
 import { BG } from '../moving_background';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { useForm as useFormspree, ValidationError } from '@formspree/react';
-import { Footer } from '../footer';
+import { useForm as useFormspree } from '@formspree/react';
+import { MutableRefObject } from 'react';
 
-export const Contact = () => {
+export const Contact = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
 	const {
 		register,
 		handleSubmit,
@@ -20,6 +20,7 @@ export const Contact = () => {
 			baseElement='section'
 			secondaryColor='rgb(var(--accent-rgb))'
 			id='contact'
+			ref={props.ref}
 			className='min-h-screen flex items-center flex-col text-center pt-12 md:pt-24'>
 			<h2 className='text-[4em] leading-normal'>Contact</h2>
 			<div className='flex flex-col items-center justify-between h-3/4 mt-8 gap-4 w-4/5'>
@@ -89,18 +90,21 @@ export const Contact = () => {
 				</form>
 				<div className='mb-12 flex flex-wrap gap-8 items-center justify-center mt-8'>
 					<Link
+						aria-label='Email'
 						className='hover:scale-125 transition-all hover:text-red-800'
 						href='mailto:elliotbtopper@gmail.com'
 						target='_blank'>
 						<Mail size={35} />
 					</Link>
 					<Link
+						aria-label='GitHub'
 						className='hover:scale-125 transition-all hover:text-black'
 						href='https://github.com/xaridar'
 						target='_blank'>
 						<GitHub size={35} />
 					</Link>
 					<Link
+						aria-label='LinkedIn'
 						className='hover:scale-125 transition-all hover:text-blue-800'
 						href='https://www.linkedin.com/in/elliot-topper'
 						target='_blank'>

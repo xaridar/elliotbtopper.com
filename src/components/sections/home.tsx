@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { MutableRefObject, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import { StringCycler } from '@/components/string_cycler';
 import { motion } from 'motion/react';
 import { BG } from '@/components/moving_background';
 import { AnimatedArrow } from '@/components/animated_arrow';
 
-export const HomeElem = () => {
+export const HomeElem = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
 	const [shouldDescPlay, setShouldDescPlay] = useState<boolean>(false);
 	return (
 		<BG
 			id='home'
+			ref={props.ref}
 			baseElement={'section'}
 			secondaryColor='black'
 			className='h-screen flex items-center justify-center flex-col colored font-semibold'>

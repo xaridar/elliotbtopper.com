@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue } from 'motion/react';
+import { motion } from 'motion/react';
 import shuffleArray from 'shuffle-array';
 import { clearInterval } from 'timers';
 

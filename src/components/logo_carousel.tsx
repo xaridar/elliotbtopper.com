@@ -1,12 +1,11 @@
 'use client';
 
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { css, keyframes } from '@/lib/emotion';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Keyframes } from '@emotion/react';
 import logos, { logo_name } from '@/lib/logos';
 import shuffle from 'shuffle-array';
-import shortid from 'shortid';
 
 interface LogoCarouselProps {
 	products: logo_name[];

@@ -1,6 +1,7 @@
+'use client';
+
 import { ProjectInterface } from '@/models/Project';
-import { LogoCarousel } from './logo_carousel';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { css } from '@emotion/react';
 
 interface ProjectThumbnailProps {
@@ -12,7 +13,6 @@ interface ProjectThumbnailProps {
 }
 
 export const ProjectThumbnail = (props: ProjectThumbnailProps) => {
-	useEffect(() => {}, []);
 	return (
 		<button
 			className={`${props.active ? 'flex-0' : 'flex-1'} w-1/4 cursor-pointer h-full relative transition-[flex]`}
@@ -27,7 +27,8 @@ export const ProjectThumbnail = (props: ProjectThumbnailProps) => {
 				props.setSelected(props.project);
 				props.setActive(props.id);
 			}}
-			onMouseEnter={() => props.setActive(props.id)}>
+			onMouseEnter={() => props.setActive(props.id)}
+			aria-label={`View ${props.project.title}`}>
 			{props.active && (
 				<h4 className='select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md p-4'>
 					{props.project.title}

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+
 import { ChevronDown } from 'react-feather';
 import { css, keyframes } from '@/lib/emotion';
 import { Button } from 'react-scroll';
@@ -17,7 +17,8 @@ export const AnimatedArrow = (props: { id: string }) => {
 					to: { bottom: '1rem' },
 				})} 1s ease-in-out infinite alternate`,
 			})}
-			size={80}>
+			size={80}
+			aria-label={props.id.charAt(0).toUpperCase() + props.id.substring(1)}>
 			<ChevronDown size={80} />
 		</Button>
 	);
