@@ -3,6 +3,7 @@ import { BG } from '../moving_background';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree, ValidationError } from '@formspree/react';
+import { Footer } from '../footer';
 
 export const Contact = () => {
 	const {
@@ -19,7 +20,7 @@ export const Contact = () => {
 			baseElement='section'
 			secondaryColor='rgb(var(--accent-rgb))'
 			id='contact'
-			className='h-screen flex items-center flex-col text-center pt-12 md:pt-28'>
+			className='min-h-screen flex items-center flex-col text-center pt-12 md:pt-24'>
 			<h2 className='text-[4em] leading-normal'>Contact</h2>
 			<div className='flex flex-col items-center justify-between h-3/4 mt-8 gap-4 w-4/5'>
 				<form
@@ -86,9 +87,9 @@ export const Contact = () => {
 						Send
 					</button>
 				</form>
-				<div className='flex flex-wrap gap-8 items-center justify-center'>
+				<div className='mb-12 flex flex-wrap gap-8 items-center justify-center mt-8'>
 					<Link
-						className='hover:scale-125 transition-all hover:text-red-600'
+						className='hover:scale-125 transition-all hover:text-red-800'
 						href='mailto:elliotbtopper@gmail.com'
 						target='_blank'>
 						<Mail size={35} />
@@ -100,7 +101,7 @@ export const Contact = () => {
 						<GitHub size={35} />
 					</Link>
 					<Link
-						className='hover:scale-125 transition-all hover:text-blue-600'
+						className='hover:scale-125 transition-all hover:text-blue-800'
 						href='https://www.linkedin.com/in/elliot-topper'
 						target='_blank'>
 						<Linkedin size={35} />

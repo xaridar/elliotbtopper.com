@@ -70,7 +70,7 @@ export const Projects = () => {
 			baseElement='section'
 			secondaryColor='rgb(var(--accent-rgb))'
 			id='projects'
-			className='min-h-screen flex items-center flex-col text-center pt-12 md:pt-28 pb-36'>
+			className='min-h-screen flex items-center flex-col text-center pt-12 md:pt-24 pb-36'>
 			<h2 className='text-[4em] leading-normal'>Projects</h2>
 			<div className='my-8 md:mx-8 h-24 max-w-4xl w-5/6 md:w-4/5 flex justify-center items-center'>
 				<button onClick={decrement}>

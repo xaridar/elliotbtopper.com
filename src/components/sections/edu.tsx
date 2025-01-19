@@ -16,7 +16,6 @@ export const Education = () => {
 				return;
 			}
 			const conv = json as SchoolInterface[];
-			console.log(conv);
 			setEdu(conv);
 		};
 		getProjects();
@@ -27,7 +26,7 @@ export const Education = () => {
 			baseElement='section'
 			secondaryColor='black'
 			id='education'
-			className='min-h-screen text-center pt-12 md:pt-28 colored flex items-center flex-col pb-36'>
+			className='min-h-screen text-center pt-12 md:pt-24 colored flex items-center flex-col pb-36'>
 			<h2 className='text-[4em] leading-normal'>Education</h2>
 			<div className='m-8 w-full flex flex-col items-center'>
 				{edu.map(c => {

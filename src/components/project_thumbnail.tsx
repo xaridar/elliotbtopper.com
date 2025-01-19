@@ -29,9 +29,9 @@ export const ProjectThumbnail = (props: ProjectThumbnailProps) => {
 			}}
 			onMouseEnter={() => props.setActive(props.id)}>
 			{props.active && (
-				<span className='select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md p-4'>
+				<h4 className='select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md p-4'>
 					{props.project.title}
-				</span>
+				</h4>
 			)}
 		</button>
 	);

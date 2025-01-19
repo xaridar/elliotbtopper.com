@@ -18,7 +18,6 @@ if (!cached) {
 
 const run = async () => {
 	try {
-		console.log(cached);
 		if (cached.conn) {
 			return cached.conn;
 		}
