@@ -2,11 +2,11 @@
 
 import { ChevronDown } from 'react-feather';
 import { css, keyframes } from '@/lib/emotion';
-import { Button } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 export const AnimatedArrow = (props: { id: string }) => {
 	return (
-		<Button
+		<Link
 			duration={800}
 			smooth
 			to={props.id}
@@ -20,6 +20,6 @@ export const AnimatedArrow = (props: { id: string }) => {
 			size={80}
 			aria-label={props.id.charAt(0).toUpperCase() + props.id.substring(1)}>
 			<ChevronDown size={80} />
-		</Button>
+		</Link>
 	);
 };
