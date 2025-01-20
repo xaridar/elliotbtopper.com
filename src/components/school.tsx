@@ -13,7 +13,6 @@ export const School = (props: { school: SchoolInterface }) => {
 
 	const handleResize = useCallback(() => {
 		if (!cardRef.current) return;
-		console.log(cardRef.current.clientWidth);
 
 		// md breakpoint
 		if (window.innerWidth < 768) {
@@ -49,11 +48,10 @@ export const School = (props: { school: SchoolInterface }) => {
 				<Masonry
 					gutter='1rem'
 					columnsCount={small ? 3 : cols}
-					className='mb-8'
-					sequential>
+					className='mb-8'>
 					{Object.keys(props.school.courses).map((course, i) => (
 						<div
-							className='card py-4 px-2 sm:px-4 flex-1'
+							className='card shadow-none py-4 px-2 sm:px-4'
 							key={`${props.school.school.replaceAll(/\s+/g, '-')}-course-${i}`}>
 							<span className='font-bold'>{course}</span>
 							{!small && `: ${props.school.courses[course]}`}
