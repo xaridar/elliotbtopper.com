@@ -1302,7 +1302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-scroll@npm:^1":
+"@types/react-scroll@npm:^1.8.10":
   version: 1.8.10
   resolution: "@types/react-scroll@npm:1.8.10"
   dependencies:
@@ -4942,7 +4942,7 @@ __metadata:
     "@types/react-dom": "npm:^18.3.0"
     "@types/react-hamburger-menu": "npm:^0.0.6"
     "@types/react-responsive-masonry": "npm:^2.6.0"
-    "@types/react-scroll": "npm:^1"
+    "@types/react-scroll": "npm:^1.8.10"
     "@types/shortid": "npm:^2"
     "@types/shuffle-array": "npm:^1"
     "@yarnpkg/plugin-typescript": "npm:^4.1.1"
