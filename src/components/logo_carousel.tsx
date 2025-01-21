@@ -95,16 +95,13 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 			<button onClick={() => setShowDetail(!showDetail)}>
 				<ShowIcon className='m-auto' />
 			</button>
-			<Masonry
-				gutter='1rem'
-				columnsCount={2}
-				className={`${showDetail ? 'flex' : '!hidden'} my-4`}>
+			<div className={`${showDetail ? 'flex' : '!hidden'} flex-wrap gap-4 justify-around my-4 w-full`}>
 				{props.products.sort().map((p, i) => {
 					const entry = logos.find(l => l.name === p);
 					if (!entry) return;
 					return (
 						<span
-							className='w-auto self-center'
+							className='w-auto'
 							key={`${p}-${i}`}
 							data-tooltip-id='my-tooltip'
 							data-tooltip-content={p}>
@@ -115,7 +112,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 						</span>
 					);
 				})}
-			</Masonry>
+			</div>
 		</>
 	);
 };

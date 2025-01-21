@@ -144,7 +144,7 @@ export const Projects = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
 							)
 						)}
 					</p>
-					<div className='w-max bg-[rgba(0,0,0,.06)] card m-auto p-4'>
+					<div className='w-48 box-content md:w-72 bg-[rgba(0,0,0,.06)] card m-auto p-4'>
 						<span>Technologies Used</span>
 						<LogoCarousel
 							products={selectedProject.technologies}
