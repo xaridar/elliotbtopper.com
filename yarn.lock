@@ -1320,13 +1320,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.3.3":
+"@types/react@npm:*":
   version: 18.3.3
   resolution: "@types/react@npm:18.3.3"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10c0/fe455f805c5da13b89964c3d68060cebd43e73ec15001a68b34634604a78140e6fc202f3f61679b9d809dde6d7a7c2cb3ed51e0fd1462557911db09879b55114
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.2.3":
+  version: 18.2.3
+  resolution: "@types/react@npm:18.2.3"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/4868728ce77ee3575dc22e1a820be6dda85b5c4ffe7031ed0983dd4ad7e7afe0e733fff698cbc97fcbb60223e23747bac772376e1c0479ed3cab745e2bb915f0
+  languageName: node
+  linkType: hard
+
+"@types/scheduler@npm:*":
+  version: 0.23.0
+  resolution: "@types/scheduler@npm:0.23.0"
+  checksum: 10c0/5cf7f2ba3732b74877559eb20b19f95fcd0a20c17dcb20e75a7ca7c7369cd455aeb2d406b3ff5a38168a9750da3bad78dd20d96d11118468b78f4959b8e56090
   languageName: node
   linkType: hard
 
@@ -4938,7 +4956,7 @@ __metadata:
     "@mui/material": "npm:^5.15.18"
     "@shrutibalasa/tailwind-grid-auto-fit": "npm:^1.1.0"
     "@types/node": "npm:^20"
-    "@types/react": "npm:^18.3.3"
+    "@types/react": "npm:18.2.3"
     "@types/react-dom": "npm:^18.3.0"
     "@types/react-hamburger-menu": "npm:^0.0.6"
     "@types/react-responsive-masonry": "npm:^2.6.0"
