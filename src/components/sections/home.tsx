@@ -41,7 +41,6 @@ export const HomeElem = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
 	}, [width, spanWidths]);
 
 	useEffect(() => {
-		console.log('debug', parentRef.current?.clientWidth, width, totalWidths, index);
 		if (!parentRef.current || index < 0 || !totalWidths.length) return;
 		setCurrLeft((parentRef.current.clientWidth - totalWidths[index]) / 2);
 	}, [parentRef.current, totalWidths, index]);
