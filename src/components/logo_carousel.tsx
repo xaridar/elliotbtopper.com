@@ -105,7 +105,7 @@ export const LogoCarousel = (props: LogoCarouselProps) => {
 							data-tooltip-id='my-tooltip'
 							data-tooltip-content={p}>
 							<Image
-								className='aspect-initial h-8 w-auto lang-icon'
+								className='aspect-initial h-10 w-auto lang-icon'
 								src={entry.logo}
 								alt={p + ' logo'}></Image>
 						</span>

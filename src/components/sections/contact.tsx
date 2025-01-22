@@ -29,7 +29,6 @@ export const Contact = (props: { ref: RefObject<HTMLDivElement> }) => {
 					className='w-full'
 					onSubmit={handleSubmit(async data => {
 						await fsSubmit(data);
-						console.log(data);
 						reset();
 					})}>
 					<h3 className='text-xl'>Feel free to reach out with any questions or inquiries!</h3>
