@@ -10,6 +10,7 @@ export const Contact = (props: { ref: RefObject<HTMLDivElement> }) => {
 		register,
 		handleSubmit,
 		clearErrors,
+		reset,
 		formState: { errors, isSubmitted },
 	} = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
 
@@ -26,8 +27,12 @@ export const Contact = (props: { ref: RefObject<HTMLDivElement> }) => {
 			<div className='flex flex-col items-center justify-between h-3/4 mt-8 gap-4 w-4/5'>
 				<form
 					className='w-full'
-					onSubmit={handleSubmit(data => fsSubmit(data))}>
+					onSubmit={handleSubmit(async data => {
+						await fsSubmit(data);
+						reset();
+					})}>
 					<h3 className='text-xl'>Feel free to reach out with any questions or inquiries!</h3>
+					{state.succeeded && <span>Thanks for reaching out! I'll get back to you soon!</span>}
 					<div className='mt-8 flex flex-wrap gap-4'>
 						<div className='flex-1 min-w-32'>
 							<div className='flex gap-2 mb-1'>

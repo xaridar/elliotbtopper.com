@@ -6,7 +6,7 @@ const clientOptions: ConnectOptions = {
 	dbName: 'Portfolio',
 };
 
-if (!process.env.MONGODB_URI) {
+if (!uri) {
 	throw new Error('Please add your MongoDB URI to .env.local');
 }
 
