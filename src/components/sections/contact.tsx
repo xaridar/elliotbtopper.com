@@ -29,6 +29,7 @@ export const Contact = (props: { ref: RefObject<HTMLDivElement> }) => {
 					className='w-full'
 					onSubmit={handleSubmit(async data => {
 						await fsSubmit(data);
+						console.log(data);
 						reset();
 					})}>
 					<h3 className='text-xl'>Feel free to reach out with any questions or inquiries!</h3>
@@ -87,7 +88,7 @@ export const Contact = (props: { ref: RefObject<HTMLDivElement> }) => {
 					</div>
 					<br />
 					<button
-						className='mb-8 rounded-full border-2 border-current px-12 py-4 hover:scale-110 transition-all'
+						className='mb-8 rounded-full border-2 border-current px-12 py-4 hover:scale-110 transition-all disabled:text-gray-500 disabled:border-gray-500'
 						type='submit'
 						disabled={state.submitting}>
 						Send
