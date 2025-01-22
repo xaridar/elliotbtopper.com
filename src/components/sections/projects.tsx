@@ -87,7 +87,7 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 				</button>
 				<div
 					className='h-full w-full rounded-lg overflow-hidden flex justify-center items-stretch'
-					onMouseLeave={() => setActiveProject(`${selectedProject._id}`)}>
+					onMouseLeave={() => setActiveProject(`${selectedProject?._id}`)}>
 					{projects.map(c => {
 						return (
 							<ProjectThumbnail
