@@ -6,8 +6,8 @@
 section {
 	--foreground-rgb: 40, 0, 60;
 	--background-rgb: 255, 90, 255;
-	--accent-rgb: 153, 115, 199;
-	--link-rgb: 0, 86, 221;
+	--accent-rgb: 160, 80, 255;
+	--link-rgb: 4, 243, 255;
 }
 
 .colored {

@@ -10,7 +10,6 @@ export const AnimatedArrow = (props: { id: string }) => {
 			duration={800}
 			smooth
 			to={props.id}
-			as='a'
 			className='stroke-[rgb(var(--foreground-rgb))] absolute left-1/2 -translate-x-1/2 cursor-pointer'
 			css={css({
 				animation: `${keyframes({

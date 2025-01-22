@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useEffect, useState } from 'react';
+import { RefObject, useCallback, useEffect, useState } from 'react';
 import { LogoCarousel } from '../logo_carousel';
 import { ProjectInterface } from '@/models/Project';
 import { ProjectThumbnail } from '../project_thumbnail';
@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'react-feather';
 
-export const Projects = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
+export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 	const [projects, setProjects] = useState<ProjectInterface[]>([]);
 	const [activeProject, setActiveProject] = useState<string>('');
 	const [selectedProject, setSelectedProject] = useState<ProjectInterface>(null);

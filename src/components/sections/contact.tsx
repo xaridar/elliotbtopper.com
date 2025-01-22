@@ -3,9 +3,9 @@ import { BG } from '../moving_background';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
-import { MutableRefObject } from 'react';
+import { RefObject } from 'react';
 
-export const Contact = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
+export const Contact = (props: { ref: RefObject<HTMLDivElement> }) => {
 	const {
 		register,
 		handleSubmit,

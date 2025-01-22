@@ -1,12 +1,12 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import { StringCycler } from '@/components/string_cycler';
 import { motion } from 'motion/react';
 import { BG } from '@/components/moving_background';
 import { AnimatedArrow } from '@/components/animated_arrow';
-import { css } from '@emotion/react';
+import { css } from '@/lib/emotion';
 
-export const HomeElem = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
+export const HomeElem = (props: { ref: RefObject<HTMLDivElement> }) => {
 	const [shouldDescPlay, setShouldDescPlay] = useState<boolean>(false);
 	// "I'm a " width
 	const [width, setWidth] = useState<number>(0);

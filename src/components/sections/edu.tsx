@@ -1,10 +1,10 @@
-import { MutableRefObject, useEffect, useState } from 'react';
+import { RefObject, useEffect, useState } from 'react';
 import { SchoolInterface } from '@/models/School';
 import { School } from '../school';
 import { BG } from '../moving_background';
 import { AnimatedArrow } from '../animated_arrow';
 
-export const Education = (props: { ref: MutableRefObject<HTMLDivElement> }) => {
+export const Education = (props: { ref: RefObject<HTMLDivElement> }) => {
 	const [edu, setEdu] = useState<SchoolInterface[]>([]);
 
 	useEffect(() => {

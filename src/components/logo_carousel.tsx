@@ -7,7 +7,6 @@ import { Keyframes } from '@emotion/react';
 import logos, { logo_name } from '@/lib/logos';
 import shuffle from 'shuffle-array';
 import { ChevronDown, ChevronUp, Icon } from 'react-feather';
-import Masonry from 'react-responsive-masonry';
 
 interface LogoCarouselProps {
 	products: logo_name[];

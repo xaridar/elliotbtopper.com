@@ -2,7 +2,7 @@
 
 import { ProjectInterface } from '@/models/Project';
 import { Dispatch, SetStateAction } from 'react';
-import { css } from '@emotion/react';
+import { css } from '@/lib/emotion';
 
 interface ProjectThumbnailProps {
 	project: ProjectInterface;

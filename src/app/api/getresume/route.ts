@@ -6,7 +6,7 @@ export const GET = async req => {
 			'https://docs.google.com/document/d/14XQklBLNCSaWzIjvyNgUTdRAQC51siIFKxPDNgHU6gM/export?format=pdf'
 		);
 		if (!resume.ok)
-			return new Response(JSON.stringify({ status: 'ok' }), {
+			return new Response(JSON.stringify({ status: 'not-found' }), {
 				status: 500,
 				headers: { 'Content-Type': 'application/json' },
 			});
@@ -15,11 +15,11 @@ export const GET = async req => {
 		const buf = Buffer.from(ab);
 		await new Promise<void>((res, rej) => createWriteStream('public/resume.pdf').write(buf, () => res()));
 		return new Response(JSON.stringify({ status: 'ok' }), {
-			status: 500,
+			status: 200,
 			headers: { 'Content-Type': 'application/json' },
 		});
 	} catch (error) {
-		return new Response(JSON.stringify({ status: 'ok' }), {
+		return new Response(JSON.stringify({ status: 'not-found' }), {
 			status: 500,
 			headers: { 'Content-Type': 'application/json' },
 		});

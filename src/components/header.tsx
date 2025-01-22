@@ -4,7 +4,7 @@ import { Button } from 'react-scroll';
 import { useEffect, useState } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
 import Link from 'next/link';
-import { css } from '@emotion/react';
+import { css } from '@/lib/emotion';
 
 export const Header = (props: { active: 'home' | 'projects' | 'education' | 'contact' }) => {
 	const [mobileOpened, setMobileOpened] = useState<boolean>(false);

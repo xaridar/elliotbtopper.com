@@ -2,7 +2,7 @@
 
 import { Interpolation, Theme } from '@emotion/react';
 import { useMotionValue, motion, useAnimationFrame } from 'motion/react';
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 
 interface BGProps {
 	baseElement: 'section' | 'div';
@@ -11,16 +11,18 @@ interface BGProps {
 	className?: string;
 	css?: Interpolation<Theme>;
 	id?: string;
-	ref?: MutableRefObject<HTMLDivElement>;
+	ref?: RefObject<HTMLDivElement>;
 }
 
 export const BG = (props: BGProps) => {
-	const ref = props.ref || useRef<HTMLDivElement>();
+	const ref = props.ref || useRef<HTMLDivElement>(null);
 	const xLoc = useMotionValue(50);
 	const yLoc = useMotionValue(50);
 
 	const xSmooth = useMotionValue(50);
 	const ySmooth = useMotionValue(50);
+
+	const [test, setTest] = useState<number>(0);
 
 	const MotionElement = props.baseElement === 'div' ? motion.div : motion.section;
 
@@ -32,6 +34,13 @@ export const BG = (props: BGProps) => {
 		});
 	}, [ref.current]);
 
+	useEffect(() => {
+		if (ref.current) {
+			ref.current.style.setProperty('--x-pos', `${xSmooth.get()}%`);
+			ref.current.style.setProperty('--y-pos', `${ySmooth.get()}%`);
+		}
+	}, [test]);
+
 	// Smoothly interpolate values on each animation frame
 	useAnimationFrame(() => {
 		const currentX = xSmooth.get();
@@ -41,6 +50,7 @@ export const BG = (props: BGProps) => {
 		const factor = 0.05;
 		xSmooth.set(currentX + (xLoc.get() - currentX) * factor);
 		ySmooth.set(currentY + (yLoc.get() - currentY) * factor);
+		setTest(test => test + 1);
 	});
 
 	return (
@@ -51,8 +61,6 @@ export const BG = (props: BGProps) => {
 			id={props.id}
 			style={
 				{
-					'--x-pos': `${xSmooth.get()}%`,
-					'--y-pos': `${ySmooth.get()}%`,
 					'--secondary-color': props.secondaryColor,
 				} as React.CSSProperties
 			}>

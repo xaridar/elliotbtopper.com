@@ -4,11 +4,11 @@ import { SchoolInterface } from '@/models/School';
 import { LogoCarousel } from './logo_carousel';
 import Masonry from 'react-responsive-masonry';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { css } from '@emotion/react';
+import { css } from '@/lib/emotion';
 
 export const School = (props: { school: SchoolInterface }) => {
 	const cardRef = useRef<HTMLDivElement>(null);
-	const [cols, setCols] = useState<number>(1);
+	const [cols, setCols] = useState<number>(3);
 	const [small, setSmall] = useState<boolean>(false);
 
 	const handleResize = useCallback(() => {
