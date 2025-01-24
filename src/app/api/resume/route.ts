@@ -20,7 +20,7 @@ export const GET = async req => {
 		const { width, height } = page.getSize();
 
 		page.drawRectangle({ x: width - 220, y: height - 65, width: 100, height: 15, color: rgb(1, 1, 1) });
-		const fontBytes = await readFile(process.cwd() + '/public/Gelasio-VariableFont_wght.ttf');
+		const fontBytes = await readFile(path.join(process.cwd(), 'Gelasio-VariableFont_wght.ttf'));
 		const customFont = await pdfDoc.embedFont(new Uint8Array(fontBytes));
 
 		page.drawText('(***)-***-****', {
