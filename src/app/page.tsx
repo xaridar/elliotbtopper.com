@@ -20,13 +20,6 @@ export default function Home() {
 				(document.querySelector('link[rel="icon"]') as HTMLLinkElement).href = '/favicon2.ico';
 			}, 750);
 		}, 1500);
-
-		// update resume
-		const updateResume = async () => {
-			await fetch('/api/getresume');
-		};
-
-		updateResume();
 	}, []);
 
 	const [activePage, setActivePage] = useState<'home' | 'projects' | 'education' | 'contact'>('home');

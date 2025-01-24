@@ -11,12 +11,13 @@ export const GET = async req => {
 				headers: { 'Content-Type': 'application/json' },
 			});
 		const file = await resume.blob();
+		const len = file.size;
 		const ab = await file.arrayBuffer();
 		const buf = Buffer.from(ab);
-		await new Promise<void>((res, rej) => createWriteStream('public/resume.pdf').write(buf, () => res()));
-		return new Response(JSON.stringify({ status: 'ok' }), {
+		// await new Promise<void>((res, rej) => createWriteStream('public/resume.pdf').write(buf, () => res()));
+		return new Response(buf, {
 			status: 200,
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 'Content-Type': 'application/pdf', 'Content-Length': `${len}` },
 		});
 	} catch (error) {
 		return new Response(JSON.stringify({ status: 'not-found' }), {

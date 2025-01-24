@@ -73,7 +73,7 @@ export const Header = (props: { active: 'home' | 'projects' | 'education' | 'con
 				<li className='cursor-pointer hover:scale-125 transition-all text-[rgb(var(--link-rgb))]'>
 					<Link
 						target='_blank'
-						href='/resume.pdf'>
+						href='/resume'>
 						Resume
 					</Link>
 				</li>
@@ -143,7 +143,7 @@ export const Header = (props: { active: 'home' | 'projects' | 'education' | 'con
 								<Link
 									target='_blank'
 									onClick={() => setMobileOpened(false)}
-									href='/resume.pdf'>
+									href='/resume'>
 									Resume
 								</Link>
 							</li>
