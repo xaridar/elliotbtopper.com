@@ -16,7 +16,22 @@ const font = Poppins({
 
 export const metadata: Metadata = {
 	title: 'Elliot Topper',
-	description: "Elliot Topper's web portfolio",
+	description: "Elliot Topper's Next.js portfolio",
+	applicationName: 'elliotbtopper.com',
+	authors: { name: 'Elliot Topper', url: 'https://github.com/xaridar' },
+	creator: 'Elliot Topper',
+	openGraph: {
+		type: 'website',
+		url: 'https://elliotbtopper.com',
+		title: 'Elliot Topper',
+		description: "Elliot Topper's Next.js portfolio",
+		siteName: 'elliotbtopper.com',
+		images: [
+			{
+				url: 'https://elliotbtopper.com/imaggs/portfolio.png',
+			},
+		],
+	},
 };
 
 export default function RootLayout({
