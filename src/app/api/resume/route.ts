@@ -40,7 +40,7 @@ export const GET = async req => {
 		});
 	} catch (error) {
 		console.log(error);
-		return new Response(JSON.stringify({ status: 'not-found' }), {
+		return new Response(JSON.stringify({ status: 'not-found', error }), {
 			status: 500,
 			headers: { 'Content-Type': 'application/json' },
 		});
