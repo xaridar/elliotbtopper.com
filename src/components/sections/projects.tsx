@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { LogoCarousel } from '../logo_carousel';
 import { ProjectInterface } from '@/models/Project';
 import { ProjectThumbnail } from '../project_thumbnail';
@@ -7,12 +7,17 @@ import { AnimatedArrow } from '../animated_arrow';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'react-feather';
+import { css } from '@/lib/emotion';
 
 export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 	const [projects, setProjects] = useState<ProjectInterface[]>([]);
-	const [activeProject, setActiveProject] = useState<string>('');
 	const [selectedProject, setSelectedProject] = useState<ProjectInterface>(null);
+	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 	const [canKeyHit, setCanKeyHit] = useState<boolean>(true);
+	const [widths, setWidths] = useState<number[]>([]);
+	const [totalWidth, setTotalWidth] = useState<number>(0);
+
+	const parentRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const getProjects = async () => {
@@ -29,7 +34,6 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 
 	useEffect(() => {
 		if (!projects.length) return;
-		setActiveProject(`${projects[0]._id}`);
 		setSelectedProject(projects[0]);
 	}, [projects]);
 
@@ -38,26 +42,26 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 		const id = selectedProject?._id;
 		const pos = id ? projects.findIndex(val => val._id === id) : 0;
 		const newPos = (pos - 1 + projects.length) % projects.length;
-		setActiveProject(`${projects[newPos]._id}`);
+		setSelectedIndex(newPos);
 		setSelectedProject(projects[newPos]);
 		setCanKeyHit(false);
 		setTimeout(() => {
 			setCanKeyHit(true);
 		}, 100);
-	}, [activeProject, selectedProject, setActiveProject, setSelectedProject, projects, canKeyHit]);
+	}, [selectedProject, setSelectedProject, projects, canKeyHit]);
 
 	const increment = useCallback(() => {
 		if (!canKeyHit) return;
 		const id = selectedProject?._id;
 		const pos = id ? projects.findIndex(val => val._id === id) : -1;
 		const newPos = (pos + 1) % projects.length;
-		setActiveProject(`${projects[newPos]._id}`);
+		setSelectedIndex(newPos);
 		setSelectedProject(projects[newPos]);
 		setCanKeyHit(false);
 		setTimeout(() => {
 			setCanKeyHit(true);
 		}, 100);
-	}, [activeProject, selectedProject, setActiveProject, setSelectedProject, projects, canKeyHit]);
+	}, [selectedProject, setSelectedProject, projects, canKeyHit]);
 
 	useEffect(() => {
 		const el = function (e) {
@@ -71,6 +75,11 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 		return () => window.removeEventListener('keydown', el);
 	}, [decrement, increment]);
 
+	useEffect(() => {
+		if (!parentRef.current) return;
+		setTotalWidth(parentRef.current.clientWidth);
+	}, [parentRef.current?.clientWidth]);
+
 	return (
 		<BG
 			baseElement='section'
@@ -79,27 +88,48 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 			id='projects'
 			className='min-h-screen flex items-center flex-col text-center pt-12 md:pt-24 pb-36'>
 			<h2 className='text-[4em] leading-normal'>Projects</h2>
-			<div className='my-8 md:mx-8 h-24 max-w-4xl w-5/6 md:w-4/5 flex justify-center items-center'>
+			<div className='my-8 w-full md:mx-8 flex justify-center items-center'>
 				<button
 					onClick={decrement}
 					aria-label='Previous Project'>
 					<ChevronLeft className='m-2' />
 				</button>
 				<div
-					className='h-full w-full rounded-lg overflow-hidden flex justify-center items-stretch'
-					onMouseLeave={() => setActiveProject(`${selectedProject?._id}`)}>
-					{projects.map(c => {
-						return (
-							<ProjectThumbnail
-								project={c}
-								id={`${c._id}`}
-								active={activeProject === c._id}
-								setActive={setActiveProject}
-								key={`${c._id}`}
-								setSelected={setSelectedProject}
-							/>
-						);
-					})}
+					className='w-4/5 overflow-hidden'
+					ref={parentRef}>
+					<div
+						className='flex items-center gap-4 relative transition-[left] duration-700'
+						css={css({
+							left: `${
+								selectedIndex >= 0 &&
+								-1 *
+									(widths.slice(0, selectedIndex).reduce((sum, curr) => sum + curr, 0) +
+										16 * selectedIndex +
+										widths[selectedIndex] / 2 -
+										totalWidth / 2)
+							}px`,
+						})}>
+						{projects.map((c, i) => {
+							return (
+								<ProjectThumbnail
+									project={c}
+									active={selectedProject === c}
+									key={`${c._id}`}
+									setSelected={() => {
+										setSelectedIndex(i);
+										setSelectedProject(c);
+									}}
+									setWidth={width =>
+										setWidths(widths => {
+											const newWidths = [...widths];
+											newWidths[i] = width;
+											return newWidths;
+										})
+									}
+								/>
+							);
+						})}
+					</div>
 				</div>
 				<button
 					onClick={increment}
