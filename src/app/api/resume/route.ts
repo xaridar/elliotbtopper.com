@@ -7,7 +7,7 @@ export const GET = async req => {
 	try {
 		const resume = await fetch(`https://docs.google.com/document/d/${process.env.RESUME_ID}/export?format=pdf`);
 		if (!resume.ok)
-			return new Response(JSON.stringify({ status: 'not-found' }), {
+			return new Response(JSON.stringify({ status: 'not-found', resume }), {
 				status: 500,
 				headers: { 'Content-Type': 'application/json' },
 			});
