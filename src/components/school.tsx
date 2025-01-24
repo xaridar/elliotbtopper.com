@@ -60,7 +60,7 @@ export const School = (props: { school: SchoolInterface }) => {
 				</Masonry>
 			</div>
 			<div
-				className='w-48 box-content md:w-72 w-max card p-4 m-auto'
+				className='box-content md:w-72 w-max card p-4 m-auto'
 				css={css({ backgroundColor: 'rgba(var(--foreground-rgb),0.08) !important' })}>
 				<span>Technologies Learned</span>
 				<LogoCarousel

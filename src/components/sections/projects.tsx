@@ -16,6 +16,7 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 	const [canKeyHit, setCanKeyHit] = useState<boolean>(true);
 	const [widths, setWidths] = useState<number[]>([]);
 	const [totalWidth, setTotalWidth] = useState<number>(0);
+	const [isMobile, setIsMobile] = useState<boolean>(false);
 
 	const parentRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +31,16 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 			setProjects(conv);
 		};
 		getProjects();
+
+		const setMobile = () => {
+			setIsMobile(window.innerWidth < 475);
+			setTotalWidth(parentRef.current?.clientWidth || totalWidth);
+		};
+		setMobile();
+
+		window.addEventListener('resize', setMobile);
+
+		return () => window.removeEventListener('resize', setMobile);
 	}, []);
 
 	useEffect(() => {
@@ -113,6 +124,7 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 							return (
 								<ProjectThumbnail
 									project={c}
+									image={!isMobile}
 									active={selectedProject === c}
 									key={`${c._id}`}
 									setSelected={() => {

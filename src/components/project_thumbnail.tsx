@@ -1,12 +1,14 @@
 'use client';
 
 import { ProjectInterface } from '@/models/Project';
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 interface ProjectThumbnailProps {
 	project: ProjectInterface;
 	active: boolean;
+	style?: React.CSSProperties;
+	image?: boolean;
 	setSelected: () => void;
 	setWidth: (width: number) => void;
 }
@@ -31,15 +33,21 @@ export const ProjectThumbnail = (props: ProjectThumbnailProps) => {
 			onClick={() => {
 				props.setSelected();
 			}}
+			style={props.style}
 			ref={ref}
 			aria-label={`View ${props.project.title}`}>
-			<Image
-				src={`/images/${props.project.image_link}`}
-				alt={`Screenshot of ${props.project.title}`}
-				height={600}
-				width={600}
-				className='max-w-none h-32 w-auto mb-2'
-			/>
+			<div className='max-w-full'>
+				{props.image && (
+					<Image
+						src={`/images/${props.project.image_link}`}
+						alt={`Screenshot of ${props.project.title}`}
+						height={600}
+						width={600}
+						className='max-w-none h-32 w-auto mb-2'
+						objectFit='contain'
+					/>
+				)}
+			</div>
 			<h4 className={`${props.active ? 'text-[rgb(var(--background-rgb))]' : ''} transition-color`}>
 				{props.project.title}
 			</h4>
