@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 		siteName: 'elliotbtopper.com',
 		images: [
 			{
-				url: 'https://elliotbtopper.com/imaggs/portfolio.png',
+				url: 'https://elliotbtopper.com/images/portfolio.jpg',
 			},
 		],
 	},
