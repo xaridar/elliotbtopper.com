@@ -106,10 +106,13 @@ export const Projects = (props: { ref: RefObject<HTMLDivElement> }) => {
 					<ChevronLeft className='m-2' />
 				</button>
 				<div
-					className='w-4/5 overflow-hidden'
-					ref={parentRef}>
+					className='w-4/5 overflow-hidden rounded-lg'
+					ref={parentRef}
+					css={css({
+						background: 'linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.03) 50%, transparent 100%)',
+					})}>
 					<div
-						className='flex items-center gap-4 relative transition-[left] duration-700'
+						className='flex items-center gap-4 relative transition-[left] duration-700 m-4'
 						css={css({
 							left: `${
 								selectedIndex >= 0 &&
