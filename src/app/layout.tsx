@@ -8,6 +8,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const font = Poppins({
 	subsets: ['latin'],
@@ -41,7 +42,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${font.className} h-screen font-body`}>{children}</body>
+			<body className={`${font.className} h-screen font-body`}>
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	);
 }

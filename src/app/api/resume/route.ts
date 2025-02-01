@@ -7,7 +7,7 @@ export const GET = async req => {
 	try {
 		const resume = await fetch(`https://docs.google.com/document/d/${process.env.RESUME_ID}/export?format=pdf`);
 		if (!resume.ok)
-			return new Response(JSON.stringify({ status: 'not-found', resume }), {
+			return new Response(JSON.stringify({ status: 'not-found' }), {
 				status: 500,
 				headers: { 'Content-Type': 'application/json' },
 			});
@@ -30,6 +30,7 @@ export const GET = async req => {
 			color: rgb(0, 0, 0),
 			font: customFont,
 		});
+
 		const newBytes = await pdfDoc.save();
 		const buf = Buffer.from(newBytes.buffer);
 		const len = buf.length;
@@ -39,8 +40,8 @@ export const GET = async req => {
 			headers: { 'Content-Type': 'application/pdf', 'Content-Length': `${len}` },
 		});
 	} catch (error) {
-		console.log(error);
-		return new Response(JSON.stringify({ status: 'not-found', error }), {
+		console.error(error);
+		return new Response(JSON.stringify({ status: 'not-found' }), {
 			status: 500,
 			headers: { 'Content-Type': 'application/json' },
 		});
