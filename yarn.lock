@@ -5992,7 +5992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongoose@npm:^8.9.4":
+"mongoose@npm:8.9.4":
   version: 8.9.4
   resolution: "mongoose@npm:8.9.4"
   dependencies:
@@ -6167,7 +6167,7 @@ __metadata:
     eslint-config-next: "npm:14.2.3"
     hamburger-react: "npm:^2.5.2"
     mongodb: "npm:^6.12.0"
-    mongoose: "npm:^8.9.4"
+    mongoose: "npm:8.9.4"
     motion: "npm:^11.15.0"
     next: "npm:^15.1.0"
     pdf-lib: "npm:^1.17.1"
