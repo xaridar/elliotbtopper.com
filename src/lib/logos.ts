@@ -74,6 +74,8 @@ import ruby from '../../public/images/logos/ruby.png';
 
 import sqlite from '../../public/images/logos/sqlite.png';
 
+import swing from '../../public/images/logos/swing.png';
+
 import tailwind_css from '../../public/images/logos/tailwind_css.png';
 
 import typescript from '../../public/images/logos/typescript.png';
@@ -123,6 +125,7 @@ const logos = [
 	{ name: 'Ruby on Rails', logo: ruby_on_rails },
 	{ name: 'Ruby', logo: ruby },
 	{ name: 'SQLite', logo: sqlite },
+	{ name: 'Swing', logo: swing },
 	{ name: 'Tailwind CSS', logo: tailwind_css },
 	{ name: 'TypeScript', logo: typescript },
 	{ name: 'Unity', logo: unity },
