@@ -4,7 +4,7 @@ import Project from '@/models/Project';
 export const GET = async req => {
 	await run();
 	try {
-		const projects = await Project.find({}).sort({ year: 'desc' }).lean();
+		const projects = await Project.find({}).sort({ year: 'desc', month: 'desc' }).lean();
 		return new Response(JSON.stringify(projects), {
 			status: 200,
 			headers: { 'Content-Type': 'application/json' },

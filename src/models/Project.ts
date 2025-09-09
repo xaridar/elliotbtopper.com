@@ -8,6 +8,7 @@ export interface ProjectInterface extends mongoose.Document {
 	link: string;
 	technologies: logo_name[];
 	year: number;
+	month: number;
 	for?: string;
 }
 
@@ -18,6 +19,7 @@ const ProjectSchema = new mongoose.Schema<ProjectInterface>({
 	link: { type: String },
 	technologies: [{ type: String, enum: Object.values(logos.map(l => l.name)) }],
 	year: { type: Number, required: true },
+	month: { type: Number, required: true },
 	for: { type: String, required: false },
 });
 
